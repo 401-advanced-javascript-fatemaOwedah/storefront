@@ -11,11 +11,11 @@ import Grid from '@material-ui/core/Grid';
 
 
 function Products(props){
-  let productsHTML = [];
+  let products = [];
    
   for (let i = 0; i < props.products.length; i++) {
     if (props.products[i].category === props.currentCategory)
-      productsHTML.push(<Card className='card'>
+      products.push(<Card className='card'>
         <CardActionArea>
           <CardMedia
             className='card-media'
@@ -42,7 +42,7 @@ function Products(props){
   <h2>{props.currentCategory} Products</h2>
     <Grid container spacing={3}>
       <Grid item xs={4}>
-    {productsHTML}
+    {products}
       </Grid>
     </Grid>
     </div>

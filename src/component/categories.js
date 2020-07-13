@@ -5,10 +5,10 @@ import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 
 function Categories(props) {
-  let categoriesHTML = [];
+  let categories = [];
 
   for (let i = 0; i < props.categories.length; i++) {
-    categoriesHTML.push(
+    categories.push(
       <Button
         variant='contained'
         color='black'
@@ -32,7 +32,7 @@ function Categories(props) {
         </Typography>
       </Toolbar>
     </AppBar>
-  {categoriesHTML}
+  {categories}
   </>;
 }
 
