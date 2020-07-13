@@ -9,18 +9,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-  },
-  media: {
-    height: 140,
-  },
-});
 
 function Products(props){
   let productsHTML = [];
@@ -31,7 +19,6 @@ function Products(props){
         <CardActionArea>
           <CardMedia
             className='card-media'
-            image="/static/images/cards/contemplative-reptile.jpg"
             title={props.products.name}
           />
           <CardContent>
