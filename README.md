@@ -4,7 +4,7 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/401-advanced-javascript-fatemaOwedah/storefront/pull/1)
+- [submission PR](https://github.com/401-advanced-javascript-fatemaOwedah/storefront/pull/2)
 
 #### Documintation
 
