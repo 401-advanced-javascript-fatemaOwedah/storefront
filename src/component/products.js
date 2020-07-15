@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+
+import {addToCart} from '../store/cart'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -13,24 +15,25 @@ import Grid from '@material-ui/core/Grid';
 function Products(props){
   let products = [];
    
-  for (let i = 0; i < props.products.length; i++) {
-    if (props.products[i].category === props.currentCategory)
+  for (let i = 0; i < props.products.products.length; i++) {
+    if (props.products.products[i].category === props.products.activeCategory)
       products.push(<Card className='card'>
         <CardActionArea>
           <CardMedia
             className='card-media'
-            title={props.products.name}
+            title={props.products.products.name}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {props.products[i].name}
+              {props.products.products[i].name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-               PRICE:{props.products[i].price}$
+               PRICE:{props.products.products[i].price}$
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-            INSTOCK: {props.products[i].inStock} PIECES
+            INSTOCK: {props.products.products[i].inStock} PIECES
             </Typography>
+            <button onClick={()=>props.addToCart(props.products.products[i])}>Add To Cart</button>
           </CardContent>
         </CardActionArea>
       </Card>);
@@ -39,7 +42,7 @@ function Products(props){
   return (
     <>
     <div className='Products'>
-  <h2>{props.currentCategory} Products</h2>
+  <h2>{props.products.activeCategory} Products</h2>
     <Grid container spacing={3}>
       <Grid item xs={4}>
     {products}
@@ -52,9 +55,9 @@ function Products(props){
 
 const mapStatetoProps = (state) => {
   return {
-    products: state.products,
-    currentCategory: state.currentCategory,
+    products: state.reducer,
   };
 };
+const mapDispatchToProps = { addToCart };
 
-export default connect(mapStatetoProps)(Products);
+export default connect(mapStatetoProps, mapDispatchToProps)(Products);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-export default function Header() {
+import {connect} from 'react-redux';
+function Header(props) {
 
   return (
     <AppBar position="static">
@@ -8,7 +9,16 @@ export default function Header() {
         <Typography variant="h7" >
           OUR STORE
         </Typography>
+        <Typography variant="h7" >
+          CART <span>{props.carts.length}</span>
+        </Typography>
       </Toolbar>
     </AppBar>
   );
 }
+const mapStatetoProps = (state) => {
+  return {
+    carts: state.cart,
+  };
+};
+export default connect(mapStatetoProps)(Header);
