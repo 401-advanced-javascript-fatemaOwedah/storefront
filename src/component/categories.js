@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as action from '../store/action';
 import { Button } from '@material-ui/core';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
@@ -14,10 +15,7 @@ function Categories(props) {
         color='black'
         key={i}
         onClick={(e) => {
-          props.dispatch({
-            type: 'CHANGE_CATEGORY',
-            payload: props.categories.categories[i].name,
-          });
+          props.render(props.categories.categories[i].name)
         }}
       >
         {props.categories.categories[i].name}
@@ -33,7 +31,7 @@ function Categories(props) {
         <Typography variant="h7" >
           <ul>
            {props.cart.map((product,i)=>{
-             return<li key={i}>{product.name}</li>
+             return<li key={i}>{product.name} <span onClick={()=>props.delete(product._id) }>X</span></li>
            })}
           </ul>
         </Typography>
@@ -46,8 +44,17 @@ function Categories(props) {
 const mapStateToProps = (state) => {
   return {
     categories: state.reducer,
-    cart: state.cart,
+    cart: state.data,
   };
 };
+const mapDispatchToProps =  (dispatch, getState) =>({
+  get:()=> dispatch(action.getData()),
+  delete:(id)=>dispatch(action.deleteData(id)),
+  render:(data)=>dispatch({
+    type: 'CHANGE_CATEGORY',
+    payload: data,
+  })
+});
 
-export default connect(mapStateToProps)(Categories);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);
