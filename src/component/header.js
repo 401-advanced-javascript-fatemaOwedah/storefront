@@ -9,6 +9,7 @@ function Header(props) {
         <Typography variant="h7" >
           OUR STORE
         </Typography>
+        <span>_______________________________________________________________________________________________________________________________________________________________</span>
         <Typography variant="h7" >
           CART <span>{props.carts.length}</span>
         </Typography>
