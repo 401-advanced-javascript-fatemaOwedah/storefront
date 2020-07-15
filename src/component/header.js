@@ -17,11 +17,12 @@ function Header(props) {
       <Toolbar variant="dense">
         <Link to="/">
         <Typography variant="h7" >
-          OUR STORE
+          OUR STORE 
         </Typography>
         </Link>
+        <span>_____________________________________________________________________________________________________________________</span>
         <Link to="/cart">
-          <Typography variant="h7" >
+          <Typography variant="h7" color="white" >
             CART <span>{props.carts.length}</span>
           </Typography>
         </Link>
