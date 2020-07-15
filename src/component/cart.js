@@ -16,7 +16,7 @@ import Grid from '@material-ui/core/Grid';
 
 function Carts(props) {
     let carts = [];
-    let change=0;
+    let change=2;
     const handleSubmit = e => {
         e.preventDefault();
         change =e.target.nameQuantity.value;

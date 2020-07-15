@@ -11,7 +11,7 @@ import * as action from '../store/action';
 function Header(props) {
   useEffect(() => {
     props.get();
-  },[])
+  },[props])
   return (
     <AppBar position="static">
       <Toolbar variant="dense">
